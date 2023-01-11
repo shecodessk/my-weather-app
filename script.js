@@ -1,4 +1,4 @@
-// Function for the current Day
+// Function to get the current Day
 
 function formatDate(timestamp) {
   let now = new Date(timestamp);
@@ -6,7 +6,7 @@ function formatDate(timestamp) {
   let dayNames = ["Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"];
   return dayNames[today]
 }
-// Function for the current time
+// Function to get the current time
 
 function formatHour(timestamp) {
   let now = new Date(timestamp);
@@ -18,7 +18,7 @@ function formatHour(timestamp) {
       return `${parts.hours}:${parts.minute} ${parts.amOrPm}`;
 }
 
-// Function to change F° & C°
+// Function to change temperature to F°/C°
 
 function convertToFahrenheit(event) {
   event.preventDefault;
@@ -37,7 +37,7 @@ function convertToFahrenheit(event) {
   let celsiusLink = document.querySelector("#celsius-link");
   celsiusLink.addEventListener("click", convertToCelsius);
 
-// Temperature based on city.
+// Function to replace html with API data
 
 function showTemp(response) { 
   console.log(response.data);
@@ -47,7 +47,11 @@ function showTemp(response) {
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);  
   document.querySelector(".day-container").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector(".time-container").innerHTML = formatHour(response.data.dt * 1000);
+  document.querySelector(".emoji-container").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+  
 }
+
+// Function to access weather API data
 
 function search(city) {
   let units = "metric";
@@ -57,6 +61,7 @@ function search(city) {
   axios.get(apiUrl).then(showTemp); 
 }
 
+//Function for search button
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-query").value;
@@ -64,7 +69,8 @@ function handleSubmit(event) {
   }
 
 
- // Current Location Button
+ // Function for current location button weather API access
+
  function showCurrentPosition(response) {
   let latitude = response.coords.latitude;
   let longitude = response.coords.longitude;
@@ -76,16 +82,20 @@ function handleSubmit(event) {
   axios.get(apiUrl).then(showTemp);
 }  
 
+// Function for geolocation
+
 function showGeoTemp() {
   navigator.geolocation.getCurrentPosition(showCurrentPosition);
 }
 
-// Event Listener
+// Event Listeners
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-btn");
 currentLocationButton.addEventListener("click", showGeoTemp);
 
-//Display a default city when page loads.
+//Function to display your default city when page loads.
+
 search("san francisco");
