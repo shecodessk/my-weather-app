@@ -43,20 +43,18 @@ html, body{
   top:-10px;
 }
 .title-container{
-
 font-size: 40px;
 margin: 5px auto;
 font-weight: bold;
 }
-.day-container{
-  font-size: 40px;
+
+.date-container{
+  font-size: 25px;
 }
 .temp-digit-container{
   font-size: 30px;
 }
-.emoji-container{
-  font-size: 90px;
-}
+
 .search-btn-container{
   font-size:x-large;
   border-radius: 5px;
@@ -64,7 +62,8 @@ font-weight: bold;
 }
 .form-search-container{ 
   max-width: 300px;}
-.search-container{
+
+  .search-container{
   float: left;
   padding: 8px;
   font-size: 15px;
@@ -105,8 +104,9 @@ font-weight: bold;
     min-width: 70px;
     transition: 300ms ease;
     padding: 8px;
+    font-size: 30px;
   }
-  .current-temp-btn:hover{
+  .current-location-btn:hover{
     background-color:cornflowerblue;
     font-size: 20px;
     color: black;
@@ -115,15 +115,11 @@ font-weight: bold;
 .search{
   margin-bottom: 150px;
 }
-.time-box-container{
-  
-    text-align: center;
-    font-size: 70px;
-    font-weight: bolder;
-  }
-  .right-column{
+
+.right-column{
     padding: 53px ;
-  }
+    }
+  
  
  p{
   text-align: center;

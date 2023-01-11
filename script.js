@@ -4,22 +4,18 @@ function formatDate(timestamp) {
   let now = new Date(timestamp);
   let today = now.getDay();
   let dayNames = ["Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  return dayNames[today]
-}
-// Function to get the current time
-
-function formatHour(timestamp) {
-  let now = new Date(timestamp);
-  let hours = now.getHours();
+  let hours = now.getHours(timestamp);
   if (hours < 10){
     hours = `0${hours}`;
   }
-  let minutes = now.getMinutes();
+  let minutes = now.getMinutes(timestamp);
   if (minutes < 10){
     minutes = `0${minutes}`;
   }
-  let amOrPm = now.getHours() < 12 ? "AM" : "PM";
-      return `${hours}:${minutes} ${amOrPm}`;
+  let amOrPm = now.getHours(timestamp) < 12 ? "AM" : "PM";
+  
+  return `${dayNames[today]} ${hours}:${minutes} ${amOrPm}`;
+
 }
 
 // Function to change temperature to F°/C°
@@ -49,9 +45,9 @@ function showTemp(response) {
   document.querySelector("#temp-digit-container").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);  
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);  
-  document.querySelector(".day-container").innerHTML = formatDate(response.data.dt * 1000);
-  document.querySelector(".time-container").innerHTML = formatHour(response.data.dt * 1000);
+  document.querySelector(".date-container").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector(".emoji-container").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+  
   
 }
 

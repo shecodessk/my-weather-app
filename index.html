@@ -18,7 +18,12 @@
       <div class="row-container-top">
         <div class="col-6">
           <h2 class="title-container" id="title-container"></h2>
-          <span class="day-container"></span>
+
+          <div class="date-container">
+            <span class="day-container"></span>
+            <span id="time-container"></span>
+          </div>
+
           <div class="temp-container" id="temp-container">
             <span class="temp-digit-container" id="temp-digit-container"></span>
             <span class="units"
@@ -31,8 +36,11 @@
             <br />
             <strong>Wind: </strong><span id="wind"></span> Km/H
           </div>
-          <span><img class="emoji-container" src="icons/002-sun.png" /></span>
+          <div>
+            <span><img class="emoji-container" src="icons/002-sun.png" /></span>
+          </div>
         </div>
+
         <div class="col-6 right-column">
           <div class="search">
             <button
@@ -52,9 +60,6 @@
               />
               <button class="submit-search-btn" type="submit">🔍</button>
             </form>
-          </div>
-          <div class="time-box-container">
-            <time class="time-container"></time>
           </div>
         </div>
       </div>
