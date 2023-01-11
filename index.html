@@ -5,83 +5,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather App</title>
   </head>
   <body>
     <section class="container">
-      <div class="section-container">
-        <div class="row-container-top">
-          <div class="col">
-            <h2 class="title-container" id="title-container"></h2>
-            <span class="day-container"></span>
-            <div class="temp-container" id="temp-container">
-              <span
-                class="temp-digit-container"
-                id="temp-digit-container"
-              ></span>
-              <span>
-                <a id="celsius-link" href="#">°C</a>|
-                <a id="fahrenheit-link" href="#">°F</a>
-              </span>
-            </div>
-            <span class="emoji-container"><img src="icons/002-sun.png" /></span>
+      <div class="row-container-top">
+        <div class="col-6">
+          <h2 class="title-container" id="title-container"></h2>
+          <span class="day-container"></span>
+          <div class="temp-container" id="temp-container">
+            <span class="temp-digit-container" id="temp-digit-container"></span>
+            <span class="units"
+              ><a id="celsius-link" href="#">°C</a>|
+              <a id="fahrenheit-link" href="#">°F</a>
+            </span>
           </div>
-          <div class="col right-column">
-            <div class="search">
-              <button
-                class="current-location-btn"
-                id="current-location-btn"
+          <div>
+            <strong>Humidity: </strong><span id="humidity"></span>%
+            <br />
+            <strong>Wind: </strong><span id="wind"></span> Km/H
+          </div>
+          <span class="emoji-container"><img src="icons/002-sun.png" /></span>
+        </div>
+        <div class="col-6 right-column">
+          <div class="search">
+            <button
+              class="current-location-btn"
+              id="current-location-btn"
+              type="text"
+            >
+              Current Location
+            </button>
+            <form class="form-search-container" id="search-form">
+              <input
+                class="search-container"
+                id="search-query"
                 type="text"
-              >
-                Current Location
-              </button>
-              <form class="form-search-container" id="search-form">
-                <input
-                  class="search-container"
-                  id="search-query"
-                  type="text"
-                  placeholder="Find your city"
-                  name="search"
-                />
-                <button class="submit-search-btn" type="submit">🔍</button>
-              </form>
-            </div>
-            <div class="time-box-container">
-              <time class="time-container">4:15 PM</time>
-            </div>
+                placeholder="Find your city"
+                name="search"
+              />
+              <button class="submit-search-btn" type="submit">🔍</button>
+            </form>
+          </div>
+          <div class="time-box-container">
+            <time class="time-container">4:15 PM</time>
           </div>
         </div>
       </div>
-      <section>
-        <div class="row-container-bottom">
-          <div class="col-3">
-            <div class="list-day second-day">Tuesday</div>
-            <div class="temp-number">70°</div>
-            <div class="list-emoji"><img src="icons/002-sun.png" /></div>
-          </div>
-          <div class="col-3">
-            <div class="list-day third-day">Wednesday</div>
-            <div class="temp-number">60°</div>
-            <div class="list-emoji"><img src="icons/003-sun-1.png" /></div>
-          </div>
-          <div class="col-3">
-            <div class="list-day fourth-day">Thursday</div>
-            <div class="temp-number">50°</div>
-            <div class="list-emoji"><img src="icons/001-rainy-day.png" /></div>
-          </div>
-          <div class="col-3">
-            <div class="list-day fifth-day">Friday</div>
-            <div class="temp-number">40°</div>
-            <div class="list-emoji"><img src="icons/005-cloud.png" /></div>
-          </div>
+
+      <div class="row-container-bottom">
+        <div class="col-3">
+          <div class="list-day second-day">Tuesday</div>
+          <div class="temp-number">70°</div>
+          <div class="list-emoji"><img src="icons/002-sun.png" /></div>
         </div>
-      </section>
+        <div class="col-3">
+          <div class="list-day third-day">Wednesday</div>
+          <div class="temp-number">60°</div>
+          <div class="list-emoji"><img src="icons/003-sun-1.png" /></div>
+        </div>
+        <div class="col-3">
+          <div class="list-day fourth-day">Thursday</div>
+          <div class="temp-number">50°</div>
+          <div class="list-emoji"><img src="icons/001-rainy-day.png" /></div>
+        </div>
+        <div class="col-3">
+          <div class="list-day fifth-day">Friday</div>
+          <div class="temp-number">40°</div>
+          <div class="list-emoji"><img src="icons/005-cloud.png" /></div>
+        </div>
+      </div>
+
       <footer class="main-footer">
         <p>
           <a href="https://github.com/shecodessk/my-weather-app" target="_blank"
             >open code</a
-          >by
+          >
+          by
           <a
             href="https://media4.giphy.com/media/T9JtEyoJ43gY4wLOqW/giphy.gif?cid=ecf05e473197divto6vg3hu33ypnsgmzacz9imd4ioeix1v9&rid=giphy.gif&ct=g"
             target="_blank"
@@ -113,7 +119,6 @@
         </div>
       </footer>
     </section>
-
     <script src="script.js"></script>
   </body>
 </html>

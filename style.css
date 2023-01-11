@@ -11,9 +11,8 @@ html, body{
   min-height: 100%;
   
 }
-
 .container{
- margin: 0 auto;
+  margin: 0 auto;
   max-width: 60%;
   min-width: 450px;
   border: none;
@@ -22,14 +21,12 @@ html, body{
   background: linear-gradient(109.6deg, rgb(120, 212, 234) 11.2%, rgb(216, 226, 253) 72.1%);
   
 }
-.section-container
 .row-container-top{
  display: flex;
- align-items: center;
-  
-  
+ align-items: center; 
 }
-.col{
+
+.col-6{
   flex:1;
   max-width: 400px;
   min-width: 100px;
@@ -41,13 +38,9 @@ html, body{
   background: linear-gradient(109.6deg, rgb(120, 212, 234) 11.2%, rgb(216, 226, 253) 72.1%);
 
 }
-.container-two{
-  padding: 20px 0;
-  margin: 10px ;
-  border: 1px solid black;
-  border-radius: 20px;
-  background: linear-gradient(109.6deg, rgb(120, 212, 234) 11.2%, rgb(216, 226, 253) 72.1%);
-
+.units{
+  position:relative;
+  top:-10px;
 }
 .title-container{
 
@@ -69,11 +62,8 @@ font-weight: bold;
   border-radius: 5px;
   border: 1px solid;
 }
-.form-search-container{
-   
-  max-width: 300px;
-
-}
+.form-search-container{ 
+  max-width: 300px;}
 .search-container{
   float: left;
   padding: 8px;
@@ -134,15 +124,7 @@ font-weight: bold;
   .right-column{
     padding: 53px ;
   }
-  .container-two ul{
-    margin:0;
-    text-align: center;
-  }
-  .container-two li{
-    display: inline;
-   font-size: 30px;
-   
-    }
+ 
  p{
   text-align: center;
  }
@@ -156,21 +138,19 @@ font-weight: bold;
  ul.footer-nav{
   padding-left: 0px;
   text-align: center;
-  
  }
 
  .footer-nav li{
   text-decoration: none;
   display: inline;
   padding: 1px;
-
-  
-  
  }
+
  .footer-nav img {
   width: 20px;
   height: 20px;
 }
+
 .row-container-bottom{
 
  display: grid;

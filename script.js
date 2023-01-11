@@ -1,30 +1,22 @@
 // Function for the current Day
 
-function formatDate() {
-  let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
   let today = now.getDay();
   let dayNames = ["Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"];
   return dayNames[today]
 }
-
-let currentDay = document.querySelector(".day-container");
-currentDay.innerHTML = formatDate();
-
 // Function for the current time
 
-function formatHour(results) {
-  
+function formatHour(timestamp) {
+  let now = new Date(timestamp);
   let parts = {
-    hours: (results.getHours() %12) || 12,
-    minute: results.getMinutes().toString().padStart(2,"0"),
-    amOrPm: results.getHours() < 12 ? "AM" : "PM"
+    hours: (now.getHours() %12) || 12,
+    minute: now.getMinutes().toString().padStart(2,"0"),
+    amOrPm: now.getHours() < 12 ? "AM" : "PM"
   };
       return `${parts.hours}:${parts.minute} ${parts.amOrPm}`;
 }
-
-let now = new Date();
-let time = document.querySelector(".time-container");
-time.innerHTML = formatHour(now);
 
 // Function to change F° & C°
 
@@ -51,9 +43,10 @@ function showTemp(response) {
   console.log(response.data);
   document.querySelector(".title-container").innerHTML = response.data.name;
   document.querySelector("#temp-digit-container").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector(".title-container").innerHTML = response.data.name;
-  document.querySelector("#temp-digit-container").innerHTML = Math.round(response.data.main.temp);
-  
+  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);  
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);  
+  document.querySelector(".day-container").innerHTML = formatDate(response.data.dt * 1000);
+  document.querySelector(".time-container").innerHTML = formatHour(response.data.dt * 1000);
 }
 
 function search(city) {
@@ -70,12 +63,6 @@ function handleSubmit(event) {
   search(city);
   }
 
-  let searchForm = document.querySelector("#search-form");
-  searchForm.addEventListener("submit", handleSubmit);
-
- //Display a default city when page loads. 
-
- search("san francisco");
 
  // Current Location Button
  function showCurrentPosition(response) {
@@ -93,7 +80,12 @@ function showGeoTemp() {
   navigator.geolocation.getCurrentPosition(showCurrentPosition);
 }
 
+// Event Listener
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
 let currentLocationButton = document.querySelector("#current-location-btn");
 currentLocationButton.addEventListener("click", showGeoTemp);
 
-
+//Display a default city when page loads.
+search("san francisco");
