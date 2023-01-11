@@ -10,12 +10,16 @@ function formatDate(timestamp) {
 
 function formatHour(timestamp) {
   let now = new Date(timestamp);
-  let parts = {
-    hours: (now.getHours() %12) || 12,
-    minute: now.getMinutes().toString().padStart(2,"0"),
-    amOrPm: now.getHours() < 12 ? "AM" : "PM"
-  };
-      return `${parts.hours}:${parts.minute} ${parts.amOrPm}`;
+  let hours = now.getHours();
+  if (hours < 10){
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10){
+    minutes = `0${minutes}`;
+  }
+  let amOrPm = now.getHours() < 12 ? "AM" : "PM";
+      return `${hours}:${minutes} ${amOrPm}`;
 }
 
 // Function to change temperature to F°/C°
