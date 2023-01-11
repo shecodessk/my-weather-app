@@ -51,6 +51,20 @@ font-weight: bold;
 .date-container{
   font-size: 25px;
 }
+
+.temp-container a{
+  text-decoration: none;
+}
+.temp-container .active{
+  color: rgb(66, 64, 64);
+  cursor: default;
+  
+}
+
+.temp-container .active:hover{
+text-decoration: none;
+  
+}
 .temp-digit-container{
   font-size: 30px;
 }

@@ -18,25 +18,6 @@ function formatDate(timestamp) {
 
 }
 
-// Function to change temperature to F°/C°
-
-function convertToFahrenheit(event) {
-  event.preventDefault;
-  let temperatureElement = document.querySelector("#temp-digit-container")
-  let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = 75
-  }
-  function convertToCelsius(event){
-    event.preventDefault;
-    let temperatureElement = document.querySelector("#temp-digit-container")
-    temperatureElement.innerHTML = 35
-  }
-  
-  let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  fahrenheitLink.addEventListener("click", convertToFahrenheit);
-  let celsiusLink = document.querySelector("#celsius-link");
-  celsiusLink.addEventListener("click", convertToCelsius);
-
 // Function to replace html with API data
 
 function showTemp(response) { 
@@ -47,8 +28,8 @@ function showTemp(response) {
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);  
   document.querySelector(".date-container").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector(".emoji-container").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
-  
-  
+
+celciusTemperature = response.data.main.temp;
 }
 
 // Function to access weather API data
@@ -67,6 +48,7 @@ function handleSubmit(event) {
   let city = document.querySelector("#search-query").value;
   search(city);
   }
+
 
 
  // Function for current location button weather API access
@@ -88,6 +70,25 @@ function showGeoTemp() {
   navigator.geolocation.getCurrentPosition(showCurrentPosition);
 }
 
+// Function to change temperature to F°/C°
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp-digit-container");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  }
+  function displayCelsius(event) {
+    event.preventDefault;
+    celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+    let temperatureElement = document.querySelector("#temp-digit-container");
+    temperatureElement.innerHTML = Math.round(celciusTemperature);
+    
+  }
+celciusTemperature = null;
 // Event Listeners
 
 let searchForm = document.querySelector("#search-form");
@@ -96,6 +97,12 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-btn");
 currentLocationButton.addEventListener("click", showGeoTemp);
 
-//Function to display your default city when page loads.
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
 
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
+//Function to display your default city when page loads
 search("san francisco");
