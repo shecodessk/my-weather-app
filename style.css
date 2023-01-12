@@ -28,7 +28,7 @@ html, body{
 }
 .sub-col-6{
   flex:1;
-  font-size: 20px;;
+  
   
 }
 .col-6{
@@ -46,6 +46,7 @@ html, body{
 .units{
   position:relative;
   top:-30px;
+  font-size:20px;
 }
 .title-container{
 font-size: 40px;
