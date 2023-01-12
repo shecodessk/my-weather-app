@@ -24,23 +24,35 @@
             <span id="time-container"></span>
           </div>
 
-          <div class="temp-container" id="temp-container">
-            <span class="temp-digit-container" id="temp-digit-container"></span>
-            <span class="units"
-              ><a id="celsius-link" class="active" href="#">°C</a>|
-              <a id="fahrenheit-link" href="#">°F</a>
-            </span>
+          <div class="row-container-top">
+            <div class="sub-col-6">
+              <div class="temp-container" id="temp-container">
+                <span
+                  class="temp-digit-container"
+                  id="temp-digit-container"
+                ></span>
+                <span class="units"
+                  ><a id="celsius-link" class="active" href="#">°C</a>|
+                  <a id="fahrenheit-link" href="#">°F</a>
+                </span>
+              </div>
+            </div>
+            <div class="sub-col-6">
+              <div class="emoji">
+                <span class="weather-description"></span>
+                <br />
+                <span
+                  ><img class="emoji-container" src="icons/002-sun.png"
+                /></span>
+              </div>
+            </div>
           </div>
           <div>
             <strong>Humidity: </strong><span id="humidity"></span>%
             <br />
             <strong>Wind: </strong><span id="wind"></span> Km/H
           </div>
-          <div>
-            <span><img class="emoji-container" src="icons/002-sun.png" /></span>
-          </div>
         </div>
-
         <div class="col-6 right-column">
           <div class="search">
             <button

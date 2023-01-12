@@ -28,6 +28,8 @@ function showTemp(response) {
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);  
   document.querySelector(".date-container").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector(".emoji-container").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+  document.querySelector(".weather-description").innerHTML = response.data.weather[0].description;  
+  
 
 celciusTemperature = response.data.main.temp;
 }

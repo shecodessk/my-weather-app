@@ -24,8 +24,13 @@ html, body{
 .row-container-top{
  display: flex;
  align-items: center; 
-}
 
+}
+.sub-col-6{
+  flex:1;
+  font-size: 20px;;
+  
+}
 .col-6{
   flex:1;
   max-width: 400px;
@@ -40,7 +45,7 @@ html, body{
 }
 .units{
   position:relative;
-  top:-10px;
+  top:-30px;
 }
 .title-container{
 font-size: 40px;
@@ -51,9 +56,12 @@ font-weight: bold;
 .date-container{
   font-size: 25px;
 }
-
+.emoji{
+  margin: 20px auto;
+}
 .temp-container a{
   text-decoration: none;
+
 }
 .temp-container .active{
   color: rgb(66, 64, 64);
@@ -66,7 +74,7 @@ text-decoration: none;
   
 }
 .temp-digit-container{
-  font-size: 30px;
+  font-size: 60px;
 }
 
 .search-btn-container{
