@@ -17,6 +17,28 @@ function formatDate(timestamp) {
   return `${dayNames[today]} ${hours}:${minutes} ${amOrPm}`;
 
 }
+//forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector(".forecast");
+  let forecastHtml = "";
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+  days.forEach(function(day) {
+    forecastHtml = forecastHtml + `
+        <div class="col-3">
+          <div class="list-day second-day">${day}</div>
+          <span class="temp-number-min">70°</span>
+          <span class="temp-number-max">70°</span>
+          <div class="list-emoji"><img src="icons/002-sun.png" /></div>
+        </div>
+        </div>
+      `;
+  })
+  
+  
+      forecastElement.innerHTML = forecastHtml; 
+  
+}
 
 // Function to replace html with API data
 
@@ -29,8 +51,8 @@ function showTemp(response) {
   document.querySelector(".date-container").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector(".emoji-container").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
   document.querySelector(".weather-description").innerHTML = response.data.weather[0].description;  
-  
 
+  
 celciusTemperature = response.data.main.temp;
 }
 
@@ -90,6 +112,7 @@ function displayFahrenheit(event) {
     temperatureElement.innerHTML = Math.round(celciusTemperature);
     
   }
+
 celciusTemperature = null;
 // Event Listeners
 
@@ -108,3 +131,4 @@ celsiusLink.addEventListener("click", displayCelsius);
 
 //Function to display your default city when page loads
 search("san francisco");
+displayForecast();
