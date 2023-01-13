@@ -29,7 +29,6 @@ html, body{
 .sub-col-6{
   flex:1;
   
-  
 }
 .col-6{
   flex:1;
@@ -56,17 +55,14 @@ font-weight: bold;
 .date-container{
   font-size: 25px;
 }
-.emoji{
-  margin: 20px auto;
-}
+
 .temp-container a{
   text-decoration: none;
 
 }
 .temp-container .active{
   color: rgb(66, 64, 64);
-  cursor: default;
-  
+  cursor: default; 
 }
 
 .temp-container .active:hover{
@@ -82,6 +78,7 @@ text-decoration: none;
   border-radius: 5px;
   border: 1px solid;
 }
+
 .form-search-container{ 
   max-width: 300px;}
 
@@ -147,10 +144,30 @@ text-decoration: none;
   text-align: center;
  }
 
- .main-footer{
-  
-  max-height: 150px;
+.row-container-bottom{
+ display: grid;
+ grid-template-columns: repeat(4,auto);
+ padding: 10px;
+ margin: 5px 15px;
+  border: 1px solid black;
+  border-radius: 20px;
+  justify-content: space-around;
+}
 
+.col-3{
+text-align: center;  
+width: 100%;
+line-height: 1.5;
+
+}
+.list-day{
+  font-size: 20px;
+  margin: 5px;
+  padding: 2px;
+}
+
+.main-footer{
+  max-height: 150px;
  }
 
  ul.footer-nav{
@@ -168,27 +185,4 @@ text-decoration: none;
   width: 20px;
   height: 20px;
 }
-
-.row-container-bottom{
-
- display: grid;
- grid-template-columns: repeat(4,auto);
- padding: 10px;
- margin: 5px 15px;
-  border: 1px solid black;
-  border-radius: 20px;
-  justify-content: space-around;
-}
-.col-3{
-text-align: center;  
-width: 100%;
-line-height: 1.5;
-
-}
-.list-day{
-  font-size: 20px;
-  margin: 5px;
-  padding: 2px;
-}
-
 
