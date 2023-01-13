@@ -186,13 +186,9 @@ line-height: 1.5;
 
 }
 .list-day{
-  font-size: 25px;
+  font-size: 20px;
   margin: 5px;
   padding: 2px;
 }
-.temp-number{
-  font-size: 20px;
-}
-.list-emoji{
-  font-size: 45px;
-}
+
+
